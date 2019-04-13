@@ -2,29 +2,30 @@ package com.bsoft.baselib.core;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.CheckResult;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+import com.bsoft.baselib.core.CoreEvent;
+import com.bsoft.baselib.util.ExitUtil;
 import com.qmuiteam.qmui.arch.QMUIFragment;
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 import com.trello.rxlifecycle2.RxLifecycle;
 import com.trello.rxlifecycle2.android.FragmentEvent;
 import com.trello.rxlifecycle2.android.RxLifecycleAndroid;
-import com.yjhealth.libs.core.utils.ExitUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import androidx.annotation.CheckResult;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
 import io.reactivex.Observable;
 import io.reactivex.subjects.BehaviorSubject;
 

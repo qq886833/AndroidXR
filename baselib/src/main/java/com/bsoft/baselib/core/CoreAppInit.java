@@ -4,8 +4,15 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.bsoft.baselib.MyEventBusIndex;
+import com.bsoft.baselib.R;
+import com.bsoft.baselib.constant.CoreConstant;
+import com.bsoft.baselib.log.CoreLogTag;
+import com.bsoft.baselib.log.LogUtil;
+import com.bsoft.baselib.shapref.CoreSharpref;
+import com.bsoft.baselib.widget.refreshlayout.DynamicTimeFormat;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.github.cyc.eventbus.subscriberindexdemo.MyEventBusIndex;
+
 import com.qmuiteam.qmui.arch.QMUISwipeBackActivityManager;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.DefaultRefreshFooterCreator;
@@ -15,12 +22,7 @@ import com.scwang.smartrefresh.layout.api.RefreshHeader;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.yjhealth.libs.core.R;
-import com.yjhealth.libs.core.constants.CoreConstants;
-import com.yjhealth.libs.core.log.CoreLogTag;
-import com.yjhealth.libs.core.log.LogUtil;
-import com.yjhealth.libs.core.shapref.CoreSharpref;
-import com.yjhealth.libs.core.view.refreshlayout.DynamicTimeFormat;
+
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -37,7 +39,7 @@ public class CoreAppInit {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator(new DefaultRefreshHeaderCreator() {
             @Override
             public RefreshHeader createRefreshHeader(Context context, RefreshLayout layout) {
-                layout.setPrimaryColorsId(R.color.yjhealth_core_bg, R.color.yjhealth_core_text_sub);
+                layout.setPrimaryColorsId(R.color.base_core_bg, R.color.base_core_text_sub);
                 return new ClassicsHeader(context).setTimeFormat(new DynamicTimeFormat("更新于 %s"));
             }
         });
@@ -85,14 +87,15 @@ public class CoreAppInit {
      */
     public void forceInit(Application app) {
         application = app;
-        CoreConstants.isDebug = CoreSharpref.getInstance().getDebug();
+        CoreConstant.isDebug = CoreSharpref.getInstance().getDebug();
         LogUtil.init();
 
+        //TODO
         EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
         Fresco.initialize(app);
         QMUISwipeBackActivityManager.init(app);
 
-        Log.d(CoreLogTag.TAG, "yunxin CoreConstants.isDebug=" + CoreConstants.isDebug);
+        Log.d(CoreLogTag.TAG, "yunxin CoreConstants.isDebug=" + CoreConstant.isDebug);
 
         isInit = true;
     }
