@@ -2,7 +2,6 @@ package com.bsoft.baselib.widget.loadview;
 
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
@@ -19,6 +18,7 @@ import com.bsoft.baselib.util.image.GlideUtil;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 
